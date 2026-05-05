@@ -85,6 +85,13 @@ class ParticipantHome(LoginAndTeamRequiredMixin, PermissionRequiredMixin, Templa
             "table_url": table_url,
             "actions": [
                 actions.Action(
+                    "participants:participant_new",
+                    label="Create",
+                    icon_class="fa-solid fa-plus",
+                    title="Create participant",
+                    required_permissions=["experiments.add_participant"],
+                ),
+                actions.Action(
                     "participants:import",
                     label="Import",
                     icon_class="fa-solid fa-file-import",
@@ -118,13 +125,20 @@ class CreateParticipant(LoginAndTeamRequiredMixin, PermissionRequiredMixin, Crea
         "active_tab": "participants",
     }
 
-    def get_success_url(self):
-        return reverse("participants:participant_home", args=[self.request.team.slug])
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["team"] = self.request.team
+        return kwargs
 
     def form_valid(self, form):
         form.instance.team = self.request.team
-        form.instance.created_by = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse(
+            "participants:single-participant-home",
+            kwargs={"team_slug": self.request.team.slug, "participant_id": self.object.id},
+        )
 
 
 class ParticipantTableView(LoginAndTeamRequiredMixin, PermissionRequiredMixin, SingleTableView):

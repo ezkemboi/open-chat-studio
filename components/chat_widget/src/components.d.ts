@@ -19,7 +19,7 @@ export namespace Components {
         "allowFullScreen": boolean;
         /**
           * The base URL for the API.
-          * @default "https://www.openchatstudio.com"
+          * @default 'https://www.openchatstudio.com'
          */
         "apiBaseUrl"?: string;
         /**
@@ -52,10 +52,13 @@ export namespace Components {
          */
         "language"?: string;
         /**
+<<<<<<< feat/prevent-oversized-message-payloads-widget
           * Maximum number of characters allowed in a single message (derived from the model's token limit). When set, a live counter is shown and the send button is disabled when exceeded.
          */
         "maxCharLimit"?: number;
         /**
+=======
+>>>>>>> main
           * The operating mode of the widget. - 'standard': Default floating window with launcher button. - 'kiosk': Fills parent container, always visible, no header or launcher button.   The parent element must establish a containing block (e.g. `position: relative`).
           * @default 'standard'
          */
@@ -142,7 +145,7 @@ declare namespace LocalJSX {
         "allowFullScreen"?: boolean;
         /**
           * The base URL for the API.
-          * @default "https://www.openchatstudio.com"
+          * @default 'https://www.openchatstudio.com'
          */
         "apiBaseUrl"?: string;
         /**
@@ -175,10 +178,13 @@ declare namespace LocalJSX {
          */
         "language"?: string;
         /**
+<<<<<<< feat/prevent-oversized-message-payloads-widget
           * Maximum number of characters allowed in a single message (derived from the model's token limit). When set, a live counter is shown and the send button is disabled when exceeded.
          */
         "maxCharLimit"?: number;
         /**
+=======
+>>>>>>> main
           * The operating mode of the widget. - 'standard': Default floating window with launcher button. - 'kiosk': Fills parent container, always visible, no header or launcher button.   The parent element must establish a containing block (e.g. `position: relative`).
           * @default 'standard'
          */
